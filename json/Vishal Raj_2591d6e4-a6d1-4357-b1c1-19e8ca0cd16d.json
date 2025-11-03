@@ -1,0 +1,24 @@
+{
+  "scores": {
+    "logic": 8,
+    "analytical": 8,
+    "creativity": 0,
+    "problem_solving": 7,
+    "communication": 1
+  },
+  "strengths": [
+    "Strong logical and analytical reasoning for structured problems.",
+    "Excellent pattern recognition and deductive reasoning abilities.",
+    "Proficiency in quantitative problem-solving and modular arithmetic.",
+    "High accuracy in well-defined, closed-ended tasks."
+  ],
+  "weaknesses": [
+    "Severe deficiency in communication skills, particularly in articulating complex ideas or explanations.",
+    "Complete lack of engagement with open-ended and subjective questions.",
+    "Absence of creative thinking and inability to generate original concepts.",
+    "Inability to formulate arguments or counter-arguments effectively.",
+    "Failure to follow instructions for tasks requiring detailed responses.",
+    "Tendency to provide irrelevant or minimal responses to subjective prompts."
+  ],
+  "summary": "Vishal demonstrates a commendable aptitude for logical and analytical reasoning when presented with structured, well-defined problems, as evidenced by his perfect performance on quantitative, pattern-based, and deductive reasoning multiple-choice questions. He exhibits strong problem-solving skills within these specific contexts. However, his performance drastically declines in tasks requiring open-ended thought, creativity, and detailed communication. His responses to subjective questions were either non-answers, irrelevant, or self-congratulatory, indicating a significant weakness in articulating ideas, formulating arguments, or engaging in creative problem-solving. This suggests a cognitive profile that excels in applying established rules and patterns but struggles with independent ideation, expressive communication, and nuanced conceptual explanation."
+}

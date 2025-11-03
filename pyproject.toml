@@ -12,5 +12,7 @@ dependencies = [
     "langchain-google-genai>=2.1.12",
     "langchain-tavily>=0.2.12",
     "python-dotenv>=1.2.1",
+    "quart>=0.20.0",
+    "quart-cors>=0.8.0",
     "tavily-python>=0.7.12",
 ]

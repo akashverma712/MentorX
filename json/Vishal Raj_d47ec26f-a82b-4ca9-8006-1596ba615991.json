@@ -1,0 +1,17 @@
+{
+  "scores": {
+    "logic": 0,
+    "analytical": 0,
+    "creativity": 0,
+    "problem_solving": 0,
+    "communication": 1
+  },
+  "strengths": [],
+  "weaknesses": [
+    "Lack of engagement with diverse problem types",
+    "Inability to apply knowledge to varied aptitude questions",
+    "Absence of demonstrated problem-solving skills across different domains",
+    "Poor communication of understanding or approach to problems"
+  ],
+  "summary": "Vishal consistently declined to answer all questions, stating 'I don't any idea.' This indicates a complete lack of engagement with the assessment and an inability to demonstrate aptitude across various domains, including logical reasoning, analytical thinking, problem-solving, and creative ideation. No actual performance data was provided to evaluate his skills, despite his self-claim regarding LeetCode."
+}
