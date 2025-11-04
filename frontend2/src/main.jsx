@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/clerk-react";
 import { dark } from '@clerk/themes'
 import App from "./App.jsx";
 import "./index.css";
+import './i18n.js';
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 

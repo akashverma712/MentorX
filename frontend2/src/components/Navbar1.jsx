@@ -80,7 +80,7 @@ const Navbar = () => {
             { name: "Home", to: "/" },
             { name: "About", to: "/about" },
             { name: "Contact", to: "/contact" },
-            { name: "Dashboard", to: "/dashboard" },
+            { name: "Dashboard", to: "/Landing2" },
           ].map((item, i) => (
             <motion.div
               key={item.name}

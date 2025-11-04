@@ -13,10 +13,6 @@
 // export default App;
 
 
-
-
-
-
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import {
@@ -37,6 +33,7 @@ import { Car } from "lucide-react";
 import CareerGuide from "./pages/CareerGuide.jsx";
 import AssessmentDashboard from "./pages/AssessmentDashboard.jsx";
 import RoadmapDashboard from "./pages/RoadmapDashboard.jsx";
+import LandingPage2 from "./pages/LandingPage2.jsx";
 
 const App = () => {
   return (
@@ -64,6 +61,20 @@ const App = () => {
           <>
             <SignedIn>
               <Dashboard />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn redirectUrl="/sign-in" />
+            </SignedOut>
+      
+          </>
+        }
+      />
+      <Route
+        path="/Landing2"
+        element={
+          <>
+            <SignedIn>
+              <LandingPage2 />
             </SignedIn>
             <SignedOut>
               <RedirectToSignIn redirectUrl="/sign-in" />
