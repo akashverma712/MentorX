@@ -71,7 +71,6 @@ const navItems = [
   { id: "sim", label: "Career Assessment", icon: ZapIcon },
   { id: "graph", label: "Roadmap", icon: LayoutDashboardIcon },
   { id: "mentor", label: "Mentor Connect", icon: UsersIcon },
-
 ];
 
 const statCards = [
@@ -147,11 +146,16 @@ const Dashboard = () => {
       <div className="relative z-10">
         {/* Header */}
         <header className="flex justify-between items-center mb-8">
-          <h1 style={{
-            WebkitTextStroke: "1px white",
-          }} className="text-2xl font-extrabold tracking-tight">Mentor<span className="text-red-400">X</span></h1>
+          <h1
+            style={{ WebkitTextStroke: "1px white" }}
+            className="text-2xl font-extrabold tracking-tight"
+          >
+            Mentor<span className="text-red-400">X</span>
+          </h1>
           <div className="flex items-center space-x-4">
-            <span className="text-sm text-gray-400 hidden sm:block">{user?.primaryEmailAddress?.emailAddress}</span>
+            <span className="text-sm text-gray-400 hidden sm:block">
+              {user?.primaryEmailAddress?.emailAddress}
+            </span>
             <UserButton appearance={{ elements: { avatarBox: "w-10 h-10" } }} />
           </div>
         </header>
@@ -181,11 +185,13 @@ const Dashboard = () => {
               onClick={() => {
                 setActiveTab(item.id);
                 if (item.id === "mentor") navigate("/MentorConnect");
+                if (item.id === "guide") navigate("/career-guide"); // 🔥 Added navigation
               }}
               className={`py-3 px-5 text-sm font-semibold transition duration-150 flex items-center space-x-2 rounded-t-lg
-                ${activeTab === item.id
-                  ? "bg-indigo-700/30 text-indigo-400 border-b-2 border-indigo-400"
-                  : "text-gray-400 hover:text-white border-b-2 border-transparent hover:border-gray-600"
+                ${
+                  activeTab === item.id
+                    ? "bg-indigo-700/30 text-indigo-400 border-b-2 border-indigo-400"
+                    : "text-gray-400 hover:text-white border-b-2 border-transparent hover:border-gray-600"
                 }`}
             >
               <item.icon className="w-4 h-4" />
@@ -201,10 +207,12 @@ const Dashboard = () => {
           ))}
         </div>
 
-        {/* Only Quick Actions Box Now */}
+        {/* Quick Actions */}
         <div className="p-6 rounded-xl bg-gray-900/80 shadow-xl border border-gray-800">
           <h3 className="text-xl font-semibold mb-4 text-indigo-300">Quick Actions</h3>
-          {actionItems.map((a, i) => <ActionItem key={i} {...a} />)}
+          {actionItems.map((a, i) => (
+            <ActionItem key={i} {...a} />
+          ))}
         </div>
       </div>
     </div>

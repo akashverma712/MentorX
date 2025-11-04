@@ -2,13 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- ✅ PWA: App Icons & Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+    <meta name="theme-color" content="#6366F1" />
+
+    <!-- ✅ Mobile and iOS Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Vriddhi" />
+
+    <!-- ✅ SEO + General -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vriddhi</title>
+    <title>Vriddhi</title>
+    <link rel="icon" type="image/png" href="/icons/icon-192x192.png" />
   </head>
+
   <body>
     <div id="root"></div>
+
+    <!-- ✅ React Entry -->
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- ✅ ElevenLabs Agent -->
     <elevenlabs-convai agent-id="agent_0701k1rfj5mned0b1vv6hbymx207"></elevenlabs-convai>
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
   </body>
