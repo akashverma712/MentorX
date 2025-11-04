@@ -1,4 +1,4 @@
-// server.js (Node/Express)
+
 import express from "express";
 import fetch from "node-fetch";
 import ExcelJS from "exceljs";
@@ -21,11 +21,10 @@ if (!CLERK_API_KEY) {
   process.exit(1);
 }
 
-// 1) Get users from Clerk (server-side)
+
 app.get("/api/admin/users", async (req, res) => {
   try {
-    // Clerk's REST endpoint to list users
-    // NOTE: Clerk API may use pagination; for demo we fetch first page
+
     const url = `${CLERK_API_URL}/v1/users`;
     const response = await fetch(url, {
       method: "GET",
@@ -39,7 +38,7 @@ app.get("/api/admin/users", async (req, res) => {
       return res.status(response.status).json({ error: text });
     }
     const body = await response.json();
-    // Transform to minimal fields for frontend
+
     const users = body.map((u) => ({
       id: u.id,
       firstName: u.first_name || u.firstName || "",
@@ -56,7 +55,7 @@ app.get("/api/admin/users", async (req, res) => {
   }
 });
 
-// 2) Export users as Excel
+
 app.get("/api/admin/export", async (req, res) => {
   try {
     const usersRes = await fetch(`${CLERK_API_URL}/v1/users`, {
