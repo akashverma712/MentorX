@@ -93,15 +93,13 @@ const About = () => {
         >
           <div className="group cursor-default transition-all duration-500">
             <p className="text-lg text-white leading-relaxed group-hover:tracking-wide transition-all duration-500">
-              Vriddhi stands as a bridge between farmers and technology — empowering
-              those who nurture our land with tools that help them grow smarter.
+            A community-driven platform connecting individuals seeking short-term help with ‘PieMates’(Service providers) willing to offer time and skills at minimal cost.
             </p>
           </div>
 
           <div className="group cursor-default transition-all duration-500">
             <p className="text-lg text-white leading-relaxed group-hover:tracking-wide transition-all duration-500">
-              Our mission is simple — bring innovation, insight, and intelligence
-              to agriculture, ensuring progress is not just sustainable but shared.
+            ‘HelPie’ bridges the gap between need and availability in daily life.
             </p>
           </div>
         </motion.div>

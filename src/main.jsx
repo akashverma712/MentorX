@@ -6,6 +6,7 @@ import { dark } from '@clerk/themes'
 import App from "./App.jsx";
 import "./index.css";
 import { register } from './registerServiceWorker'
+import "./i18n";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 

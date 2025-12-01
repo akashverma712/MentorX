@@ -10,7 +10,7 @@ const cardData = [
   {
     color: '#060010',
     title: 'Analytics',
-    description: 'Track crop diseases',
+    description: 'Track Resources',
     label: 'Insights'
   },
   {
@@ -22,7 +22,7 @@ const cardData = [
   {
     color: '#060010',
     title: 'Connect',
-    description: 'Connect with other farmers',
+    description: 'Connect with other NGOs',
     label: 'Teamwork'
   },
   {
@@ -34,8 +34,8 @@ const cardData = [
   {
     color: '#060010',
     title: 'Profit',
-    description: 'Sell crop at best prices',
-    label: 'Selling'
+    description: 'Donate Resource to needy',
+    label: 'Donation'
   },
   {
     color: '#060010',

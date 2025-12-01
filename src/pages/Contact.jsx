@@ -1,6 +1,8 @@
+// src/pages/Contact.jsx
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar1";
+import { useTranslation } from "react-i18next";
 
 const colors = {
   pageBg: "#000000",
@@ -17,8 +19,10 @@ const toastVariants = {
 };
 
 const ContactPage = () => {
+  const { t } = useTranslation();
   const canvasRef = useRef(null);
 
+  // ✨ Background stars
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -123,11 +127,7 @@ const ContactPage = () => {
       className="relative min-h-screen flex items-center justify-center p-4 md:p-10 overflow-hidden"
       style={{ backgroundColor: colors.pageBg }}
     >
-      {/* Twinkling star canvas */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full z-0"
-      />
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-0" />
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -139,15 +139,13 @@ const ContactPage = () => {
           {/* Left Info Section */}
           <div className="space-y-12">
             <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight text-white">
-              Get in Touch
+              {t("contact_title")}
               <span className="text-7xl md:text-9xl align-top text-purple-400">*</span>
             </h1>
 
             <div className="space-y-10">
               <p className="text-lg font-light max-w-md text-gray-400">
-                We’d love to hear from you! Whether it is any feature which
-                can be improved or any part which you don't like. Just drop us a 
-                message.
+                {t("contact_subtext")}
               </p>
 
               <div className="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 text-base font-medium">
@@ -170,7 +168,8 @@ const ContactPage = () => {
                     href="tel:+91 7479676602"
                     className="hover:text-white transition-colors duration-200"
                   >
-                    +91 7479676602
+                    +91 7903550610<br/>
+                    +91 6201622338
                   </a>
                 </span>
                 <span className="flex items-center space-x-3 text-gray-400">
@@ -189,23 +188,23 @@ const ContactPage = () => {
                     />
                   </svg>
                   <a
-                    href="mailto:hello@company.com"
+                    href="mailto:vriddhi@company.com"
                     className="hover:text-white transition-colors duration-200"
                   >
-                    vriddhi@company.com
+                    helpie@company.com
                   </a>
                 </span>
               </div>
             </div>
           </div>
 
-
+          {/* Right Contact Form */}
           <motion.form onSubmit={handleSubmit} className="space-y-12 pt-16 lg:pt-0">
-            <FormInput name="name" placeholder="Name*" />
-            <FormInput name="email" placeholder="Email*" type="email" />
+            <FormInput name="name" placeholder={t("name_placeholder")} />
+            <FormInput name="email" placeholder={t("email_placeholder")} type="email" />
             <FormInput
               name="message"
-              placeholder="Message (Tell us about your problem)"
+              placeholder={t("message_placeholder")}
               isTextArea={true}
             />
 
@@ -219,7 +218,7 @@ const ContactPage = () => {
             >
               {!isLoading && !isSent && (
                 <>
-                  <span>Send Message</span>
+                  <span>{t("send_message")}</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 ml-2"
@@ -258,7 +257,7 @@ const ContactPage = () => {
                   ></path>
                 </svg>
               )}
-              {isSent && <span>Message Sent!</span>}
+              {isSent && <span>{t("message_sent")}</span>}
             </motion.button>
           </motion.form>
         </div>
@@ -289,7 +288,7 @@ const ContactPage = () => {
                 d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
               />
             </svg>
-            <span className="font-semibold">Please fill out required fields.</span>
+            <span className="font-semibold">{t("error_toast")}</span>
           </motion.div>
         )}
       </AnimatePresence>

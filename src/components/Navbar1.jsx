@@ -3,12 +3,15 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { UserButton, useUser } from "@clerk/clerk-react";
-import { LogIn } from "lucide-react"; // ✅ clean arrow login icon
+import { LogIn, Globe } from "lucide-react"; // 🌐 added globe icon
+import i18n from "i18next";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const canvasRef = useRef(null);
   const { isSignedIn } = useUser();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   // 🌌 Stars animation
   useEffect(() => {
@@ -48,6 +51,11 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", resize);
   }, []);
 
+  // 🌐 Change Language
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <motion.nav
       initial={{ y: -60, opacity: 0 }}
@@ -55,7 +63,6 @@ const Navbar = () => {
       transition={{ duration: 1, ease: "easeOut" }}
       className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-black/70 via-black/40 to-black/70 backdrop-blur-xl border-b border-white/10"
     >
-      {/* Starry background */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none opacity-40"
@@ -71,16 +78,16 @@ const Navbar = () => {
             WebkitTextStroke: "1px white",
           }}
         >
-          Mentor <span className="text-red-500">X</span>
+          <span className="text-purple-400">H</span>EL<span className="text-purple-400">P</span>IE
         </motion.h1>
 
         {/* Navigation Links */}
         <div className="flex items-center gap-10">
           {[
-            { name: "Home", to: "/" },
-            { name: "About", to: "/about" },
-            { name: "Contact", to: "/contact" },
-            { name: "Dashboard", to: "/dashboard" },
+            { name: t("home"), to: "/" },
+            { name: t("about"), to: "/about" },
+            { name: t("contact"), to: "/contact" },
+            { name: t("dashboard"), to: "/dashboard" },
           ].map((item, i) => (
             <motion.div
               key={item.name}
@@ -103,6 +110,23 @@ const Navbar = () => {
             </motion.div>
           ))}
 
+          {/* 🌐 Language Switcher */}
+          <div className="flex items-center gap-2 text-white/80">
+            <Globe size={18} />
+            <select
+              onChange={(e) => changeLanguage(e.target.value)}
+              defaultValue={i18n.language || "en"}
+              className="bg-transparent text-white border border-white/30 rounded-md px-2 py-1 text-sm focus:outline-none hover:bg-white/10"
+            >
+              <option value="en" className="text-black">
+                English
+              </option>
+              <option value="hi" className="text-black">
+                हिन्दी
+              </option>
+            </select>
+          </div>
+
           {/* Auth section */}
           {!isSignedIn ? (
             <motion.button
@@ -111,7 +135,7 @@ const Navbar = () => {
               onClick={() => navigate("/sign-in")}
               className="flex items-center gap-2 px-5 py-2 border border-white/40 rounded-md text-white font-medium hover:bg-white/10 transition-all duration-300 shadow-sm"
             >
-              Log In
+              {t("login")}
               <LogIn size={18} />
             </motion.button>
           ) : (

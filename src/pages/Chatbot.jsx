@@ -2,11 +2,9 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Send, User, Bot, Loader2, Briefcase, Zap, BarChart3, List } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// ---------------- ENV ----------------
 const apiKey = "AIzaSyD6CbkeOehVzUtFBgVD0ThXarBXRdQbQbA";
 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
 
-// ---------------- Schema ----------------
 const ChatResponseSchema = {
   type: "OBJECT",
   properties: {
@@ -43,7 +41,6 @@ const ChatResponseSchema = {
   },
 };
 
-// ---------------- Retry Fetch ----------------
 const retryFetch = async (url, options, maxRetries = 3) => {
   for (let i = 0; i < maxRetries; i++) {
     try {
@@ -57,7 +54,6 @@ const retryFetch = async (url, options, maxRetries = 3) => {
   }
 };
 
-// ---------------- Graphical Responses ----------------
 const GraphicalResponse = ({ type, data }) => {
   if (type === 'comparison') {
     return (
@@ -118,7 +114,6 @@ const renderMessageContent = (msgData) => {
   );
 };
 
-// ---------------- Main ----------------
 const App = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -142,7 +137,7 @@ const App = () => {
     const payload = {
       contents: history,
       systemInstruction: {
-        parts: [{ text: `You are Mentor X, a supportive multilingual career mentor. Respond following the given schema.` }],
+        parts: [{ text: `You are DaanSetu, a supportive multilingual career mentor. Respond following the given schema.` }],
       },
       generationConfig: { responseMimeType: "application/json", responseSchema: ChatResponseSchema },
     };
@@ -176,11 +171,10 @@ const App = () => {
         <div className="p-5 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white flex justify-between items-center">
           <div className="flex items-center">
             <Briefcase className="w-7 h-7 mr-3" />
-            <h1 className="text-2xl font-bold tracking-wide">Mentor X</h1>
+            <h1 className="text-2xl font-bold tracking-wide">PIEBOT</h1>
           </div>
         </div>
 
-        {/* CHAT AREA */}
         <div className="flex-grow p-6 space-y-5 overflow-y-auto custom-scrollbar">
           {messages.length === 0 && (
             <motion.div
@@ -189,9 +183,9 @@ const App = () => {
               className="text-center text-gray-600 mt-20 p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-inner border border-indigo-100"
             >
               <Zap className="w-10 h-10 mx-auto text-indigo-500 mb-3" />
-              <p className="text-xl font-bold text-gray-800">Hello, I’m Mentor X 👋</p>
+              <p className="text-xl font-bold text-gray-800">Hello, I’m PIEBOT👋</p>
               <p className="text-md mt-1 text-indigo-600">
-                Ask me anything about your career, growth, or learning path.
+                Ask me anything about our services.
               </p>
             </motion.div>
           )}
@@ -231,7 +225,7 @@ const App = () => {
                 </div>
                 <div className="px-4 py-3 bg-indigo-50 rounded-3xl rounded-tl-lg border border-indigo-100 flex items-center text-sm text-gray-700">
                   <Loader2 className="w-4 h-4 animate-spin mr-2 text-indigo-600" />
-                  Mentor X is thinking...
+                  PieBot is thinking...
                 </div>
               </div>
             </div>
@@ -240,14 +234,13 @@ const App = () => {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* INPUT AREA */}
         <div className="p-5 bg-white/80 backdrop-blur-md border-t border-gray-200 shadow-lg">
           <div className="flex items-end">
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyPress}
-              placeholder="Type your career question..."
+              placeholder="Type your query..."
               rows={1}
               className="flex-grow p-4 border border-gray-300 rounded-2xl resize-none focus:ring-indigo-500 focus:border-indigo-500 transition text-base shadow-inner bg-white/80"
               disabled={loading}

@@ -8,7 +8,7 @@ const Landing = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 12000); // Show loader for 12 seconds
+    }, 6000); 
     return () => clearTimeout(timer);
   }, []);
 
@@ -28,19 +28,9 @@ const Landing = () => {
           background: "linear-gradient(135deg, #000000, #4B0082)",
         }}
       >
-        <iframe
-          src="https://my.spline.design/prismcoin-tp4FPkfRxuG92CqzNJvvc35s/"
-          frameBorder="0"
-          width="100%"
-          height="100%"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            border: "none",
-          }}
-          allowFullScreen
-        ></iframe>
+          
+          <iframe src='https://my.spline.design/abstractnirvana-kRzEFFbwEVvJk2CDwkCoDXps/' frameborder='0' width='100%' height='100%'></iframe>
+    
       </div>
     </>
   );
